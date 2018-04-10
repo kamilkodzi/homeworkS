@@ -1,0 +1,16 @@
+body{
+    
+    min-width: 200px;
+}
+.container{
+    margin-top: 1em;
+    
+}
+
+#frame-body{
+    min-height: 80vh;
+}
+
+#footer{
+    margin-top:1em;
+}
