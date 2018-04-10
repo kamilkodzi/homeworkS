@@ -1,16 +1,25 @@
 body{
     
-    min-width: 200px;
-}
-.container{
-    margin-top: 1em;
+    min-width: 720px;
     
 }
 
-#frame-body{
-    min-height: 80vh;
-}
 
 #footer{
-    margin-top:1em;
+    margin:10px;
+    
+}
+
+label{
+    text-align: left
+}
+
+#frame-body-element{
+    width: 570px;
+    /*margin-bottom: 25px;*/
+}
+
+#container{
+    margin-left: 35px;
+    min-height: 80vh;
 }
