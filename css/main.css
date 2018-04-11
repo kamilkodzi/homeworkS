@@ -14,12 +14,20 @@ label{
     text-align: left
 }
 
-#frame-body-element{
-    width: 570px;
+.frame-body-element{
+    width: 580px;
     /*margin-bottom: 25px;*/
 }
 
 #container{
-    margin-left: 35px;
+    margin-left: 10px;
     min-height: 80vh;
+}
+#inputAdd{
+    margin-left: 20px;
+    margin-top: 5px;
+}
+#exportTextArea{
+    min-width: 80vw;
+    min-height: 40vh;
 }
