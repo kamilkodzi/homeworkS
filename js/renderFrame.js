@@ -1,6 +1,6 @@
-function inputAdd(){
+function inputAdd(e){
     const x=new Frame();
-    x.createIt();
+    x.createIt(e);
 }
 
 function inputAddSub(e){
@@ -15,11 +15,11 @@ function deleteInput(e){
 
 
 
-function Frame(question="",type="Yes/No",isSubquestion=false){
+function Frame(question="",type="Yes/No",condition1,condition2){
     this.question=question;
     this.type=type;
-    this.isSubquestion=isSubquestion;
-    this.subquestions=[];
+    this.condition1=condition1;
+    this.condition2=condition2;
     
     Frame.prototype.createIt= function(cont){
         
