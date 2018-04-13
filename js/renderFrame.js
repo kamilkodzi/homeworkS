@@ -3,12 +3,6 @@ function inputAdd(e){
     x.createIt(e);
 }
 
-function inputAddSub(e){
-    const x=new Frame("","Yes/No",true);
-    const path=e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
-    x.createIt(path);
-}
-
 function deleteInput(e){
     e.target.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
 }
@@ -18,88 +12,64 @@ function deleteInput(e){
 function Frame(question="",type="Yes/No",condition1,condition2){
     this.question=question;
     this.type=type;
-    this.isSubquestion=condition1;
+    this.condition1=condition1;
     this.condition2=condition2;
+    let framePlace;
     
-    Frame.prototype.createIt= function(cont){
+    Frame.prototype.createIt= function(e){
+        
+        if(e.target.parentElement.id=="container"){
+            framePlace=document.querySelector("#container-list");
+        }else{
+            framePlace=e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+        }
         
         
-        const patter=`
-        <ul id="container-list" class="list-group border-0">
-            <li class="list-group-item border-0">
-                <div class="card border-dark frame-body-element">
-                  <div class="card-body text-dark">
-                    <form name="homeform">
-                        <div class="form-group row">
-                          <label class="col-sm-2 col-form-label" for="conditions">Question</label>
-                          <div class="col-sm-6">
-                            <select id="conditions" class="form-control">
-                              <option>Equals</option>
-                              <option>Greather than</option>
-                              <option>Less than</option>
-                            </select>
-                          </div>
-                          <div class="col-sm-4">
-                            <select id="conditions" class="form-control">
-                              <option>Yes</option>
-                              <option>No</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label class="col-sm-2 col-form-label" for="inputQuestion">Question</label>
-                          <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputQuestion">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputType" class="col-sm-2 col-form-label">Type</label>
-                          <div class="col-sm-10">
-                            <select id="inputType" class="form-control">
-                              <option>Yes/No</option>
-                              <option>Text</option>
-                              <option>Number</option>
-                            </select>
-                            </div>
-                        </div>
-                        <div class="float-right">
-                          <a href="#" class="btn btn-sm btn-dark addSubInput">Add-Sub-Input</a>
-                          <a href="#" class="btn btn-sm btn-dark deleteInput">Delete</a>
-                        </div>
-                    </form>
-                  </div>
-                </div>
-             </li>
-        </ul>
+        // let myContainer=document.querySelector("#container-list");
+        // // let myContainer="#container-list";
+        // if(this.isSubquestion==!false){
+        //     myContainer=cont;
+        // }
+        
+        
+        
+        const patternConditionFormOptions=`
+            <option>Equals</option>
+            <option>Greather than</option>
+            <option>Less than</option>
         `;
         
         
-          
+        const patternConditionFormAnswer=`
+            <select id="conditions" class="form-control">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+        `;
         
         
+        //bedzie zalezec od rodzina jakie odpowiedzi
+        const patternConditionForm=`
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="conditions">Question</label>
+              <div class="col-sm-6">
+                <select id="conditions" class="form-control">
+                 ${patternConditionFormOptions} 
+                </select>
+              </div>
+              <div class="col-sm-4">
+                ${patternConditionFormAnswer}
+              </div>
+            </div>
+        `;
         
         
-        
-    
-    let myElement="li";
-    if(this.isSubquestion==!false){myElement="ul"}
-    
-    
-    let myContainer=document.querySelector("#container-list");
-    // let myContainer="#container-list";
-    if(this.isSubquestion==!false){
-        myContainer=cont;
-    }
-    
-    let myClass="list-group-item border-0";
-    if(this.isSubquestion==!false){myClass="list-group border-0"}
-    
-    let extraLi="";
-    if(this.isSubquestion==!false){extraLi=`<li class="list-group-item border-0">`}
-    
-    let extraLiEnd="";
-    if(this.isSubquestion==!false){extraLiEnd=`</li>`}
-    
+        const patternQuestionValue="";
+
+
+
+
+
     
     function subquestionInput1(e){
         console.log(e.target);
@@ -137,43 +107,42 @@ function Frame(question="",type="Yes/No",condition1,condition2){
     
     
     
-    const blankInput=document.createElement(`${myElement}`);
-    console.log(myElement);
-    blankInput.className=myClass;
+    const pattern=document.createElement("ul");
+    pattern.className="list-group border-0";
 
-blankInput.innerHTML=`
-        ${extraLi}
-      <div class="card border-dark frame-body-element">
-        <div class="card-body text-dark">
-          <form name="homeform">
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="inputQuestion">Question</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputQuestion">
-              </div>
-            </div>
-             
-            <div class="form-group row">
-               <label for="inputType" class="col-sm-2 col-form-label">Type</label>
-               <div class="col-sm-10">
-                 <select id="inputType" class="form-control">
-                   <option>Yes/No</option>
-                   <option>Text</option>
-                   <option>Number</option>
-                 </select>
-               </div>
-            </div>
-            <div class="float-right">
-            <a href="#" class="btn btn-sm btn-dark addSubInput">Add-Sub-Input</a>
-            <a href="#" class="btn btn-sm btn-dark deleteInput">Delete</a>
-            </div>
-          </form>
-      </div>
-    </div>
-    ${extraLiEnd}
+pattern.innerHTML=`
+            <li class="list-group-item border-0">
+                <div class="card border-dark frame-body-element">
+                  <div class="card-body text-dark">
+                    <form name="homeform">
+                    ${patternConditionForm}
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label" for="inputQuestion">Question</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputQuestion" value="${patternQuestionValue}">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputType" class="col-sm-2 col-form-label">Type</label>
+                          <div class="col-sm-10">
+                            <select id="inputType" class="form-control">
+                              <option>Yes/No</option>
+                              <option>Text</option>
+                              <option>Number</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div id="buttons" class="float-right">
+                          <a href="#" class="btn btn-sm btn-dark inputAdd">Add-Sub-Input</a>
+                          <a href="#" class="btn btn-sm btn-dark deleteInput">Delete</a>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+             </li>
 `;
 
- myContainer.appendChild(blankInput);
+ framePlace.appendChild(pattern);
  document.activeElement.blur();
     };
 }

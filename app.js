@@ -9,7 +9,7 @@ function runEvent(e){
     if(e.target.id==="menu-create"){renderCreate()}
     if(e.target.id==="menu-preview"){renderPreview()}
     if(e.target.id==="menu-export"){renderExport()}
-    if(e.target.id==="inputAdd"){inputAdd()}
-    if(e.target.classList.contains("addSubInput")){inputAddSub(e)}
+    // if(e.target.id==="inputAdd"){inputAdd(e)}
+    if(e.target.classList.contains("inputAdd")){inputAdd(e)} //inputAddSub(e)
     if(e.target.classList.contains("deleteInput")){deleteInput(e)}
 }
