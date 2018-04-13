@@ -25,10 +25,10 @@ function renderCreate(){
     deactiveMenu();
     menuCreate.classList.add("active");
     
-    const htmlElement=document.createElement("ul");
+    const htmlElement=document.createElement("div");
     const htmlElement2=document.createElement("a");
     htmlElement.id="container-list";
-    htmlElement.className="list-group border-0";
+    // htmlElement.className="list-group border-0";
     container.appendChild(htmlElement);
     htmlElement2.id="inputAdd";
     htmlElement2.className="btn btn-dark float-left";
