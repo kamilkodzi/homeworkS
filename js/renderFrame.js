@@ -15,111 +15,81 @@ function Frame(question="",type="Yes/No",condition1,condition2){
     this.condition1=condition1;
     this.condition2=condition2;
     let framePlace;
-    
+
     Frame.prototype.createIt= function(e){
+        //We`re checking is place to paste the new Form basing on clicked target
+        let htmlCode;
+        let pattern;
         
         if(e.target.parentElement.id=="container"){
+            //If we clicked AddInput
             framePlace=document.querySelector("#container-list");
+            htmlCode="";
+            
+            
+            
+            
+            
         }else{
+            //If we added sub input
             framePlace=e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
-        }
-        
-        
-        // let myContainer=document.querySelector("#container-list");
-        // // let myContainer="#container-list";
-        // if(this.isSubquestion==!false){
-        //     myContainer=cont;
-        // }
-        
-        
-        
-        const patternConditionFormOptions=`
-            <option>Equals</option>
-            <option>Greather than</option>
-            <option>Less than</option>
-        `;
-        
-        
-        const patternConditionFormAnswer=`
+            const parentFrame=(framePlace.firstElementChild.firstElementChild.firstElementChild);
+            this.condition1=parentFrame[parentFrame.length-1].value;
+            
+
+            htmlCode=`
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="conditions">Condition</label>
+                <div class="col-sm-6">
+                  <select id="conditions" class="form-control">`;
+          
+          htmlCode+="<option>Equals</option><option>Greather than</option><option>Less than</option>";
+         
+          // switch(this.condition1){
+          //   case "Yes/No":
+          //     htmlCode+=("<option>Equals</option>");
+          //   case "Text":
+          //     htmlCode+=("<option>Equals</option>");
+          //   case "Number":
+          //     htmlCode+=("<option>Greather than</option><option>Greather than</option><option>Less than</option>");
+          // }
+          
+          htmlCode+=(`</select></div><div class="col-sm-4">`);
+          
+          switch(this.condition1){
+            case "Yes/No":
+              htmlCode+=(`
             <select id="conditions" class="form-control">
               <option>Yes</option>
               <option>No</option>
             </select>
-        `;
-        
-        
-        //bedzie zalezec od rodzina jakie odpowiedzi
-        const patternConditionForm=`
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="conditions">Question</label>
-              <div class="col-sm-6">
-                <select id="conditions" class="form-control">
-                 ${patternConditionFormOptions} 
-                </select>
-              </div>
-              <div class="col-sm-4">
-                ${patternConditionFormAnswer}
-              </div>
+              `);
+            break;
+            default:
+              htmlCode+=(`
+              <input type="text" class="form-control" id="conditions">`);}
+          
+          
+          htmlCode+=(`
             </div>
-        `;
+            </div>`);
+        }
         
+   
         
-        const patternQuestionValue="";
-
-
-
-
-
-    
-    function subquestionInput1(e){
-        console.log(e.target);
-    }
-    
-    
-    function subquestionInput2(){
-        
-    }
-    
-    
-    
-    let extraDivForSubInput="";
-    if(this.isSubquestion==!false){extraDivForSubInput=`
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="inputCondition">Condition</label>
-              <div class="col-sm-10">
-                <select id="inputType" class="form-control">
-                    
-                   <option>Equals</option>
-                   <option>Greater than</option>
-                   <option>Less than</option>
-                </select>
-                
-              </div>
-            </div>
-    
-    `}
-    
-    let extraDivForSubInputEnd="";
-    if(this.isSubquestion==!false){extraDivForSubInput=`
-    
-    
-    `}
-    
-    
-    
-    const pattern=document.createElement("ul");
+    pattern=document.createElement("ul");
     pattern.className="list-group border-0";
-
-pattern.innerHTML=`
+   
+        pattern.innerHTML=`
             <li class="list-group-item border-0">
                 <div class="card border-dark frame-body-element">
                   <div class="card-body text-dark">
                     <form name="homeform">
-                    ${patternConditionForm}
+                    ${htmlCode}
                         <div class="form-group row">
                           <label class="col-sm-2 col-form-label" for="inputQuestion">Question</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputQuestion" value="${patternQuestionValue}">
+                            <input type="text" class="form-control" id="inputQuestion">
                           </div>
                         </div>
                         <div class="form-group row">
@@ -141,9 +111,22 @@ pattern.innerHTML=`
                 </div>
              </li>
 `;
+        
+        
+
+ 
+   
+
+
+
 
  framePlace.appendChild(pattern);
  document.activeElement.blur();
     };
+    
+    
+            
+    
+    
 }
 
