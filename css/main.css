@@ -31,3 +31,7 @@ label{
     min-width: 80vw;
     min-height: 40vh;
 }
+
+div.card-body{
+    padding: 15px;
+}

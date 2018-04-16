@@ -31,7 +31,7 @@ function renderCreate(){
     // htmlElement.className="list-group border-0";
     container.appendChild(htmlElement);
     htmlElement2.id="inputAdd";
-    htmlElement2.className="btn btn-dark float-left";
+    htmlElement2.className="btn btn-dark float-left inputAdd";
     htmlElement2.href="#";
     htmlElement2.textContent="Add Input";
     container.appendChild(htmlElement2);
