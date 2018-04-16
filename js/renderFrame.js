@@ -35,7 +35,7 @@ function conditionByTypeChanger(e){
 
 
 
-function Frame(question="",type="Yes/No",condition1,condition2){
+function Frame(question="",type="Yes/No",condition1=null,condition2=null){
     this.question=question;
     this.type=type;
     this.condition1=condition1;
