@@ -38,3 +38,21 @@ div#container.card-body{
 div.page{
     margin-top:50px;
 }
+
+.preview li{
+    list-style-type: none;
+    margin-top:6px;
+}
+
+
+ul.preview{
+    margin-bottom: 25px;
+}
+
+input#inlineFormInputName2{
+    width: 250px;
+}
+
+div.form-check{
+    margin-left: 10px;
+}

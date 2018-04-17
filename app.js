@@ -9,6 +9,7 @@ const menuPreview=document.querySelector("#menu-preview");
 const menuExport=document.querySelector("#menu-export");
 const container=document.querySelector("#container");
 
+
 function runEvent(e){
     // if(e.target.id==="inputType"){conditionByTypeChanger(e)}
     if(e.target.id==="menu-create"){renderCreate()}
@@ -37,6 +38,7 @@ function deleteInput(e){
 }
 
 function hasChange(e){
+    console.log("something has change");
     if(e.target.id=="inputType"){
         conditionByTypeChanger(e);
         updateHTML();
