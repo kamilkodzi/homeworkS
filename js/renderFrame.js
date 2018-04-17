@@ -9,17 +9,37 @@ function conditionByTypeChanger(e){
     };
     const list=e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
     const chosenOption =e.target.value;
-    for (let i=1;i<list.children.length;i++){
+    const chosenFrame=e.target.parentElement.parentElement.parentElement;
+    const chosenQuestion=chosenFrame[chosenFrame.length-2].value;
+   
+    for (let i=0;i<list.children.length;i++){
+      let condition2;
+      
+      
+      if(i===0){
+      //updte main frame  he have to go up to parrentElement
+        
+           const obj=new Frame(chosenQuestion,chosenOption);
+           dbSequence=[]
+           buildSequence(list.parentElement);
+           byPathValueUpdate(obj,dbSequence,project);
+           project.updateDB();
+          
+          
+      }else{
+      
+      
+      
         const firstConditionField= list.children[i].firstElementChild.firstElementChild.firstElementChild.firstElementChild.firstElementChild.children[1].firstElementChild;
-        if(chosenOption=="Yes/No"){
-            firstConditionField.parentElement.nextElementSibling.innerHTML=`           
-            <select id="conditions" class="form-control">
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-            </select>`;
-        }else{
-            firstConditionField.parentElement.nextElementSibling.innerHTML=`<input type="text" class="form-control" id="conditions" value="">`;
-        }
+          if(chosenOption=="Yes/No"){
+              firstConditionField.parentElement.nextElementSibling.innerHTML=`           
+              <select id="conditions" class="form-control">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>`;
+          }else{
+              firstConditionField.parentElement.nextElementSibling.innerHTML=`<input type="text" class="form-control" id="conditions" value="">`;
+          }
     while (firstConditionField.options.length) {
         firstConditionField.remove(0);
     }
@@ -29,7 +49,27 @@ function conditionByTypeChanger(e){
         myNewOption.text=answers[chosenOption][i];
         myNewOption.setAttribute("value",answers[chosenOption][i]);
         firstConditionField.options.add(myNewOption);
-        }
+    }
+        const chosenQuestionInSub=firstConditionField.parentElement.parentElement.parentElement.children[1].lastElementChild.firstElementChild.value;
+        const subFrame=firstConditionField.parentElement.parentElement.parentElement;
+        const chosenTypeInSub=subFrame.children[(subFrame.length)-2].lastElementChild.firstElementChild.value;
+        let condition1="Equal";
+        let condition2="";
+        
+        if(chosenOption=="Yes/No"){condition2="Yes"};
+          
+          const obj=new Frame(chosenQuestionInSub,chosenTypeInSub,condition1,condition2);
+          dbSequence=[]
+          buildSequence(list.children[i]);
+          byPathValueUpdate(obj,dbSequence,project);
+          project.updateDB();
+        
+        
+        
+        
+      }
+      
+
     }
 }
 

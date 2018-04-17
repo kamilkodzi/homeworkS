@@ -18,6 +18,7 @@ function renderExport(){
     const htmlElement=document.createElement("textarea");
     htmlElement.id="exportTextArea";
     container.appendChild(htmlElement);
+    htmlElement.textContent=JSON.stringify(project);
 }
 
 function renderCreate(){

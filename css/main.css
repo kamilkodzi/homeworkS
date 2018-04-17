@@ -1,6 +1,6 @@
 body{
     
-    min-width: 720px;
+    min-width: 100%;
     
 }
 
@@ -20,19 +20,21 @@ label{
     /*margin-bottom: 25px;*/
 }
 
-#container{
-    margin-left: 10px;
-    min-height: 90vh;
+div#container.card-body{
+    min-height: 85vmin;
+  
+    
 }
 #inputAdd{
     margin-left: 20px;
     margin-top: 5px;
 }
 #exportTextArea{
+    margin:auto;
     min-width: 80vw;
     min-height: 40vh;
 }
 
-div.card-body{
-    padding: 15px;
+div.page{
+    margin-top:50px;
 }
