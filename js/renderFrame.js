@@ -92,8 +92,13 @@ function Frame(question="",type="Yes/No",condition1=null,condition2=null){
             framePlace=e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
             const parentFrame=(framePlace.firstElementChild.firstElementChild.firstElementChild);
             const parentType=parentFrame[parentFrame.length-1].value;
-            this.condition1="Equals";
-            this.condition2="Yes";
+            
+            if(this.condition==!null){}
+            if(this.condition==!null){}
+            
+            
+            // this.condition1="Equals";
+            // this.condition2="Yes";
             // this.condition1=parentFrame[parentFrame.length-1].value;
             // console.log(this.condition1);
 
@@ -106,12 +111,18 @@ function Frame(question="",type="Yes/No",condition1=null,condition2=null){
           switch(parentType){
             case "Yes/No":
               htmlCode+=('<option value="Equals">Equals</option>');
+              this.condition1="Equals";
+              this.condition2="Yes";
               break;
             case "Text":
               htmlCode+=('<option value="Equals">Equals</option>');
+              this.condition1="Equals";
+              this.condition2="";
                break;
             case "Number":
               htmlCode+=('<option value="Equals">Equals</option><option value="Greather than">Greather than</option><option value="Less than">Less than</option>');
+              this.condition1="Equals";
+              this.condition2="";
                break;
           }
           

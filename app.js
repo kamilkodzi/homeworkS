@@ -17,27 +17,21 @@ function runEvent(e){
     if(e.target.classList.contains("deleteInput")){deleteInput(e)}
 }
 
-
 function inputAdd(e){
     const obj=new Frame();
     let element=obj.createIt(e);
+    localUpdateAdd(obj,element);
     // obj.restoreMyOptions(obj,element);  <--- function used to restore
-    
-    let project=[];
-    project.push(obj);
-    console.log(obj);
-    console.log(JSON.stringify(obj));
-    
-    
-    // localStorage.setItem("project",project);
-    
-    
+    element.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
+
+e.preventDefault();
 }
 
 function deleteInput(e){
-  console.log(e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
-    console.log(e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
-    console.log(e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement==e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[2]);
+    let elementToDelete=e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+    dbSequence=[];
+    localUpdateRemove(elementToDelete);
+    
    
-    // e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+    e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
 }

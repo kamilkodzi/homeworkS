@@ -6,7 +6,8 @@ body{
 
 
 #footer{
-    padding:10px;
+    padding-bottom:1px;
+    padding-right: 5px;
     
 }
 
@@ -21,7 +22,7 @@ label{
 
 #container{
     margin-left: 10px;
-    min-height: 84vh;
+    min-height: 90vh;
 }
 #inputAdd{
     margin-left: 20px;
