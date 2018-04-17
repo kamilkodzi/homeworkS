@@ -18,7 +18,11 @@ function renderExport(){
     const htmlElement=document.createElement("textarea");
     htmlElement.id="exportTextArea";
     container.appendChild(htmlElement);
-    htmlElement.textContent=JSON.stringify(project);
+    if((htmlElement.textContent=JSON.stringify(project)).length>2){
+        htmlElement.textContent=JSON.stringify(project);
+    }else{
+        htmlElement.textContent="";
+    }
 }
 
 function renderCreate(){
@@ -36,6 +40,7 @@ function renderCreate(){
     htmlElement2.href="#";
     htmlElement2.textContent="Add Input";
     container.appendChild(htmlElement2);
+    renderHTML();
 }
 
 function renderPreview(){

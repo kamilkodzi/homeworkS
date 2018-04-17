@@ -33,12 +33,12 @@ function conditionByTypeChanger(e){
         const firstConditionField= list.children[i].firstElementChild.firstElementChild.firstElementChild.firstElementChild.firstElementChild.children[1].firstElementChild;
           if(chosenOption=="Yes/No"){
               firstConditionField.parentElement.nextElementSibling.innerHTML=`           
-              <select id="conditions" class="form-control">
+              <select id="conditions" class="form-control condition2">
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>`;
           }else{
-              firstConditionField.parentElement.nextElementSibling.innerHTML=`<input type="text" class="form-control" id="conditions" value="">`;
+              firstConditionField.parentElement.nextElementSibling.innerHTML=`<input type="text" class="form-control condition2" id="conditions" value="">`;
           }
     while (firstConditionField.options.length) {
         firstConditionField.remove(0);
@@ -90,7 +90,7 @@ function Frame(question="",type="Yes/No",condition1=null,condition2=null){
       let type;
       let condition1;
       let condition2;
-      console.log(typeOfForm);
+      
       switch (typeOfForm){
         case 1:
           type=ele.firstElementChild.firstElementChild.firstElementChild.firstElementChild.children[1].lastElementChild.firstElementChild;
@@ -136,17 +136,12 @@ function Frame(question="",type="Yes/No",condition1=null,condition2=null){
             if(this.condition==!null){}
             if(this.condition==!null){}
             
-            
-            // this.condition1="Equals";
-            // this.condition2="Yes";
-            // this.condition1=parentFrame[parentFrame.length-1].value;
-            // console.log(this.condition1);
 
             htmlCode=`
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="conditions">Condition</label>
                 <div class="col-sm-6">
-                  <select id="conditions" class="form-control">`;
+                  <select id="conditions" class="form-control condition1">`;
 
           switch(parentType){
             case "Yes/No":
@@ -171,7 +166,7 @@ function Frame(question="",type="Yes/No",condition1=null,condition2=null){
           switch(parentType){
             case "Yes/No":
               htmlCode+=(`
-            <select id="conditions" class="form-control">
+            <select id="conditions" class="form-control condition2">
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
@@ -179,7 +174,7 @@ function Frame(question="",type="Yes/No",condition1=null,condition2=null){
             break;
             default:
               htmlCode+=(`
-              <input type="text" class="form-control" id="conditions" value="">`);}
+              <input type="text" class="form-control condition2" id="conditions" value="">`);}
           
           
           htmlCode+=(`
@@ -201,7 +196,7 @@ function Frame(question="",type="Yes/No",condition1=null,condition2=null){
                         <div class="form-group row">
                           <label class="col-sm-2 col-form-label" for="inputQuestion">Question</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputQuestion" value="">
+                            <input type="text" class="form-control question" id="inputQuestion" value="">
                           </div>
                         </div>
                         <div class="form-group row">

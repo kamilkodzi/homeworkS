@@ -3,6 +3,7 @@ document.addEventListener("click",runEvent);
 document.addEventListener("change",hasChange);
  document.addEventListener("DOMContentLoaded",localStorageChecker);
  document.addEventListener("submit",function(e){e.preventDefault();document.activeElement.blur()});
+ document.addEventListener("keyup",function(e){if(e.keyCode==13){document.activeElement.blur()}});
 const menuCreate=document.querySelector("#menu-create");
 const menuPreview=document.querySelector("#menu-preview");
 const menuExport=document.querySelector("#menu-export");
@@ -23,7 +24,7 @@ function inputAdd(e){
     localUpdateAdd(obj,element);
     // obj.restoreMyOptions(obj,element);  <--- function used to restore
     element.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
-
+    updateHTML();
 e.preventDefault();
 }
 
@@ -32,13 +33,17 @@ function deleteInput(e){
     dbSequence=[];
     localUpdateRemove(elementToDelete);
     e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+    updateHTML();
 }
 
 function hasChange(e){
-        if(e.target.id=="inputType"){
+    if(e.target.id=="inputType"){
         conditionByTypeChanger(e);
+        updateHTML();
+    }else if(e.target.id=="inputQuestion"||e.target.id=="conditions"){
+        hasChangeUpdate(e);
+        updateHTML();
     }
- 
 }
 
 
