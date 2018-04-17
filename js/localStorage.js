@@ -2,7 +2,6 @@ let dbSequence=[];
 var project=[];
 
 function updateHTML(){
-    console.log(container.innerHTML);
     localStorage.setItem("projectHTML",JSON.stringify(container.innerHTML));
 }
 
@@ -113,10 +112,16 @@ function localUpdateRemove(element){
 function localStorageChecker(){
     if(localStorage.getItem("project")==null){
        project.updateDB();
-       updateHTML();
     }else{
         project=JSON.parse(localStorage.getItem("project"));
     }
+    
+    if(localStorage.getItem("projectHTML")==null){
+        updateHTML();
+    }else{
+        renderHTML();
+    }
+    
 }
 
 

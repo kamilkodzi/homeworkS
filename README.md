@@ -9,6 +9,8 @@ Just download the repository and open index.html on your browser.
 There is no server needed.
 
 ## Under construction (about it)
-
+CreateTab- is working
+PreviewTab- under construction
+ExportTab- under construction
 
 If you will need more explanation feel free to ask.

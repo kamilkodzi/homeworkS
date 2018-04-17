@@ -51,4 +51,12 @@ function renderPreview(){
     htmlElement.id="container-list";
     htmlElement.className="list-group border-0";
     container.appendChild(htmlElement);
+    previewSurvey();
 }
+
+
+
+
+
+
+
