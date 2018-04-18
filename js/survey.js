@@ -51,7 +51,7 @@ if(myPlace===undefined){
 
 myProject.forEach(function(question,index){
       const x=createPreviewElement(question,myPlace);
-      if(question.subQuestions.length==!0){
+      if(question.subQuestions.length>0){
          return previewSurvey(x.firstElementChild,myProject[index].subQuestions);
       }
   });
