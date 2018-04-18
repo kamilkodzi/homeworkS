@@ -4,11 +4,17 @@ function conditionByTypeChanger(e){
         "Text":["Equals"],
         "Number":["Equals","Greather than","Smaller than"]
     };
+    let cond1=null;
+    let cond2=null;
     const list=e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
     const chosenOption =e.target.value;
     const chosenFrame=e.target.parentElement.parentElement.parentElement;
     const chosenQuestion=chosenFrame[chosenFrame.length-2].value;
     chosenFrame[chosenFrame.length-2].setAttribute("value",chosenQuestion);
+    if(chosenFrame.length==4){
+      cond1=chosenFrame.firstElementChild.children[1].firstElementChild.value;
+      cond2=chosenFrame.firstElementChild.children[2].firstElementChild.value;
+    }
     
     for (let i=0;i<e.target.childElementCount;i++){
       e.target.children[i].removeAttribute("selected");
@@ -21,7 +27,7 @@ function conditionByTypeChanger(e){
       let condition2;
       if(i===0){
       //updte main frame  he have to go up to parrentElement
-         const obj=new Frame(chosenQuestion,chosenOption);
+         const obj=new Frame(chosenQuestion,chosenOption,cond1,cond2);
          dbSequence=[]
          buildSequence(list.parentElement);
          byPathValueUpdate(obj,dbSequence,project);
@@ -63,6 +69,10 @@ function conditionByTypeChanger(e){
       }
     }
 }
+
+
+
+
 
 function Frame(question="",type="Yes/No",condition1=null,condition2=null){
     this.question=question;

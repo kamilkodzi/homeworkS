@@ -45,3 +45,6 @@ div.form-check{
 div.questionAsked{
     margin-bottom: 4px;
 }
+form#previewTextForm{
+    margin-top:3px;
+}

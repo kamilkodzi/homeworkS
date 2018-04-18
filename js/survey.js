@@ -31,7 +31,7 @@ function createPreviewElement(question,placeToAdd){
           pattern=`
             <li class="preview">
             ${question.question}
-              <form>
+              <form id="previewTextForm">
                 <div class="form-group">
                   <input type="text" class="form-control mb-2 mr-sm-2" id="previewInput">
                 </div>
@@ -61,12 +61,13 @@ function hasChangeInPreview(e){
   const changedElementUl=e.target.parentElement.parentElement.parentElement.parentElement;
   const listOfChildrenElements=e.target.parentElement.parentElement.parentElement;
   const changedValue=e.target.value;
-  // const changedValueType=e.target.type;
+  
+  
   dbSequence=[];
   buildSequence(changedElementUl);
   const subQuestions=byPathPreviewAdd(dbSequence,project);
-  
   subQuestions.forEach(function(question,index){
+
     if(question.condition1=="Equals"){
        if(changedValue==question.condition2){
          //change to dispal yes
