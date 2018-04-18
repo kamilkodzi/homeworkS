@@ -40,7 +40,7 @@ function byPathValueUpdate(obj,sequence,project){
         project[sequence].type=obj.type;
         project[sequence].condition1=obj.condition1;
         project[sequence].condition2=obj.condition2;
-      
+        
     }else{
         const i=sequence[0];
         sequence.shift();
@@ -132,6 +132,23 @@ function hasChangeUpdate(e){
     const element=e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
     buildSequence(element);
     byPathUpdateOneValue(toChangeType,toChangeValue,dbSequence,project,false);
+    
+    if(e.target.type=="text"){
+        e.target.setAttribute("value",e.target.value);
+    }else{
+        console.log("zmiana z opcjami");
+        for (let i=0;i<e.target.childElementCount;i++){
+            e.target.children[i].removeAttribute("selected");
+        }
+        
+        if(e.target.value=="Yes"){e.target.children[0].setAttribute("selected",true)}
+        if(e.target.value=="No"){e.target.children[1].setAttribute("selected",true)}
+        if(e.target.value=="Equal"){e.target.children[0].setAttribute("selected",true)}
+        if(e.target.value=="Greather than"){e.target.children[1].setAttribute("selected",true)}
+        if(e.target.value=="Smaller than"){e.target.children[2].setAttribute("selected",true)}
+        
+ 
+    }
     project.updateDB();
 }
 

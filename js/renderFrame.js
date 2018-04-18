@@ -11,7 +11,16 @@ function conditionByTypeChanger(e){
     const chosenOption =e.target.value;
     const chosenFrame=e.target.parentElement.parentElement.parentElement;
     const chosenQuestion=chosenFrame[chosenFrame.length-2].value;
-   
+    chosenFrame[chosenFrame.length-2].setAttribute("value",chosenQuestion);
+    
+    for (let i=0;i<e.target.childElementCount;i++){
+      e.target.children[i].removeAttribute("selected");
+    }
+    if(chosenOption=="Yes/No"){e.target.children[0].setAttribute("selected",true)}
+    if(chosenOption=="Text"){e.target.children[1].setAttribute("selected",true)}
+    if(chosenOption=="Number"){e.target.children[2].setAttribute("selected",true)} 
+    
+    
     for (let i=0;i<list.children.length;i++){
       let condition2;
       
@@ -34,7 +43,7 @@ function conditionByTypeChanger(e){
           if(chosenOption=="Yes/No"){
               firstConditionField.parentElement.nextElementSibling.innerHTML=`           
               <select id="conditions" class="form-control condition2">
-                <option value="Yes">Yes</option>
+                <option value="Yes" selected>Yes</option>
                 <option value="No">No</option>
               </select>`;
           }else{
@@ -48,6 +57,7 @@ function conditionByTypeChanger(e){
         let myNewOption=document.createElement("option");
         myNewOption.text=answers[chosenOption][i];
         myNewOption.setAttribute("value",answers[chosenOption][i]);
+        if(i==0){myNewOption.setAttribute("selected",true)}
         firstConditionField.options.add(myNewOption);
     }
         const chosenQuestionInSub=firstConditionField.parentElement.parentElement.parentElement.children[1].lastElementChild.firstElementChild.value;
@@ -145,17 +155,17 @@ function Frame(question="",type="Yes/No",condition1=null,condition2=null){
 
           switch(parentType){
             case "Yes/No":
-              htmlCode+=('<option value="Equals">Equals</option>');
+              htmlCode+=('<option value="Equals" selected>Equals</option>');
               this.condition1="Equals";
               this.condition2="Yes";
               break;
             case "Text":
-              htmlCode+=('<option value="Equals">Equals</option>');
+              htmlCode+=('<option value="Equals" selected>Equals</option>');
               this.condition1="Equals";
               this.condition2="";
                break;
             case "Number":
-              htmlCode+=('<option value="Equals">Equals</option><option value="Greather than">Greather than</option><option value="Less than">Less than</option>');
+              htmlCode+=('<option value="Equals" selected>Equals</option><option value="Greather than">Greather than</option><option value="Less than">Less than</option>');
               this.condition1="Equals";
               this.condition2="";
                break;
@@ -167,7 +177,7 @@ function Frame(question="",type="Yes/No",condition1=null,condition2=null){
             case "Yes/No":
               htmlCode+=(`
             <select id="conditions" class="form-control condition2">
-              <option value="Yes">Yes</option>
+              <option value="Yes" selected>Yes</option>
               <option value="No">No</option>
             </select>
               `);
@@ -203,7 +213,7 @@ function Frame(question="",type="Yes/No",condition1=null,condition2=null){
                           <label for="inputType" class="col-sm-2 col-form-label">Type</label>
                           <div class="col-sm-10">
                             <select id="inputType" class="form-control">
-                              <option value="Yes/No">Yes/No</option>
+                              <option value="Yes/No" selected>Yes/No</option>
                               <option value="Text">Text</option>
                               <option value="Number">Number</option>
                             </select>
