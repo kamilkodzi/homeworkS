@@ -51,10 +51,14 @@ ul.preview{
 }
 
 
-input#inlineFormInputName2{
+input#previewInput{
     width: 250px;
 }
 
 div.form-check{
     margin-left: 8px;
+}
+
+div.questionAsked{
+    margin-bottom: 4px;
 }
