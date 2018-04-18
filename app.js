@@ -38,13 +38,14 @@ function deleteInput(e){
 }
 
 function hasChange(e){
-    console.log("something has change");
-    if(e.target.id=="inputType"){
+    if(e.target.id=="inputType" && menuCreate.classList.contains("active")){
         conditionByTypeChanger(e);
         updateHTML();
-    }else if(e.target.id=="inputQuestion"||e.target.id=="conditions"){
+    }else if((e.target.id=="inputQuestion"||e.target.id=="conditions") && menuCreate.classList.contains("active")){
         hasChangeUpdate(e);
         updateHTML();
+    }else if(menuPreview.classList.contains("active")){
+        hasChangeInPreview(e);
     }
 }
 
