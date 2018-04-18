@@ -1,29 +1,18 @@
 body{
-    
     min-width: 100%;
-    
 }
-
-
 #footer{
     padding-bottom:1px;
     padding-right: 5px;
-    
 }
-
 label{
     text-align: left
 }
-
 .frame-body-element{
     width: 620px;
-    /*margin-bottom: 25px;*/
 }
-
 div#container.card-body{
     min-height: 85vmin;
-  
-    
 }
 #inputAdd{
     margin-left: 20px;
@@ -34,31 +23,25 @@ div#container.card-body{
     min-width: 80vw;
     min-height: 40vh;
 }
-
 div.page{
     margin-top:50px;
 }
-
 .preview li{
     list-style-type: none;
     margin-top:6px;
+    margin-bottom: 6px;
     margin-left: 2px;
 }
-
-
 ul.preview{
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    padding-left:15px;
 }
-
-
 input#previewInput{
     width: 250px;
 }
-
 div.form-check{
     margin-left: 8px;
 }
-
 div.questionAsked{
     margin-bottom: 4px;
 }

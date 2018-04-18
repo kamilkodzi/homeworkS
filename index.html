@@ -1,73 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Form Builder</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" rel="stylesheet">
-    
-
-</head>
-<body>
-
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#"><span class="oi oi-clipboard"></span> Form Builder - Challenge Design</a>
-</nav>
-<div class="page">
-  
-  <div class="card text-center">
-  <div class="card-header">
-    <ul class="nav nav-tabs card-header-tabs">
-      <li class="nav-item">
-        <a id="menu-create" class="nav-link text-dark active " href="#">Create</a>
-      </li>
-      <li class="nav-item">
-        <a id="menu-preview" class="nav-link text-dark" href="#">Preview</a>
-      </li>
-      <li class="nav-item">
-        <a id="menu-export" class="nav-link text-dark" href="#">Export</a>
-      </li>
-    </ul>
-  </div>
-  
-  <div  id="container" class="card-body">
-    <div id="container-list">
-
-
-
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Form Builder</title>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="css/main.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#"><span class="oi oi-clipboard"></span> Form Builder - Challenge Design</a>
+    </nav>
+    <div class="page">
+      <div class="card text-center">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a id="menu-create" class="nav-link text-dark active " href="#">Create</a>
+            </li>
+            <li class="nav-item">
+              <a id="menu-preview" class="nav-link text-dark" href="#">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a id="menu-export" class="nav-link text-dark" href="#">Export</a>
+            </li>
+          </ul>
+        </div>
+      <div  id="container" class="card-body">
+        <div id="container-list">
+        </div>
+        <a id="inputAdd" href="#" class="btn btn-dark float-left inputAdd">Add Input</a>
+      </div>
+      </div>
     </div>
-    <a id="inputAdd" href="#" class="btn btn-dark float-left inputAdd">Add Input</a>
-    <!--<input id="inputAdd" type="submit" class="btn btn-dark float-left inputAdd" value="Add Input"/>-->
-  </div>
-  
-  
-<!--<div id="footer" class="text-right fixed-bottom">-->
-<!--  Developed by kamilkodzi 2018-->
-<!--</div>-->
-  
-</div>
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<script type="text/javascript" src="js/renderMenu.js"></script>
-<script type="text/javascript" src="js/renderFrame.js"></script>
-<script type="text/javascript" src="js/localStorage.js"></script>
-<script type="text/javascript" src="js/survey.js"></script>
-<script type="text/javascript" src="app.js"></script>
-</body>
+  <script type="text/javascript" src="js/renderMenu.js"></script>
+  <script type="text/javascript" src="js/renderFrame.js"></script>
+  <script type="text/javascript" src="js/localStorage.js"></script>
+  <script type="text/javascript" src="js/survey.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  </body>
 </html>

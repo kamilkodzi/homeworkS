@@ -1,6 +1,3 @@
-
-
-
 function conditionByTypeChanger(e){
     const answers={
         "Yes/No":["Equals"],
@@ -20,25 +17,16 @@ function conditionByTypeChanger(e){
     if(chosenOption=="Text"){e.target.children[1].setAttribute("selected",true)}
     if(chosenOption=="Number"){e.target.children[2].setAttribute("selected",true)} 
     
-    
     for (let i=0;i<list.children.length;i++){
       let condition2;
-      
-      
       if(i===0){
       //updte main frame  he have to go up to parrentElement
-        
-           const obj=new Frame(chosenQuestion,chosenOption);
-           dbSequence=[]
-           buildSequence(list.parentElement);
-           byPathValueUpdate(obj,dbSequence,project);
-           project.updateDB();
-          
-          
+         const obj=new Frame(chosenQuestion,chosenOption);
+         dbSequence=[]
+         buildSequence(list.parentElement);
+         byPathValueUpdate(obj,dbSequence,project);
+         project.updateDB();
       }else{
-      
-      
-      
         const firstConditionField= list.children[i].firstElementChild.firstElementChild.firstElementChild.firstElementChild.firstElementChild.children[1].firstElementChild;
           if(chosenOption=="Yes/No"){
               firstConditionField.parentElement.nextElementSibling.innerHTML=`           
@@ -63,27 +51,18 @@ function conditionByTypeChanger(e){
         const chosenQuestionInSub=firstConditionField.parentElement.parentElement.parentElement.children[1].lastElementChild.firstElementChild.value;
         const subFrame=firstConditionField.parentElement.parentElement.parentElement;
         const chosenTypeInSub=subFrame.children[(subFrame.length)-2].lastElementChild.firstElementChild.value;
-        let condition1="Equal";
+        let condition1="Equals";
         let condition2="";
         
         if(chosenOption=="Yes/No"){condition2="Yes"};
-          
           const obj=new Frame(chosenQuestionInSub,chosenTypeInSub,condition1,condition2);
           dbSequence=[]
           buildSequence(list.children[i]);
           byPathValueUpdate(obj,dbSequence,project);
           project.updateDB();
-        
-        
-        
-        
       }
-      
-
     }
 }
-
-
 
 function Frame(question="",type="Yes/No",condition1=null,condition2=null){
     this.question=question;
@@ -92,7 +71,6 @@ function Frame(question="",type="Yes/No",condition1=null,condition2=null){
     this.condition2=condition2;
     this.subQuestions=[];
     let framePlace;
-
 
     Frame.prototype.restoreMyOptions=function(obj,ele){
       const typeOfForm=ele.querySelectorAll("input").length*ele.querySelectorAll("select").length;
@@ -122,7 +100,6 @@ function Frame(question="",type="Yes/No",condition1=null,condition2=null){
       }
     };
 
-
     Frame.prototype.createIt= function(e){
         //We`re checking is place to paste the new Form basing on clicked target
         let htmlCode;
@@ -132,21 +109,13 @@ function Frame(question="",type="Yes/No",condition1=null,condition2=null){
             //If we clicked AddInput
             framePlace=document.querySelector("#container-list");
             htmlCode="";
-            
-            
-            
-            
-            
         }else{
             //If we added sub input
             framePlace=e.target.parentElement.parentElement.parentElement.parentElement.parentElement;
             const parentFrame=(framePlace.firstElementChild.firstElementChild.firstElementChild);
             const parentType=parentFrame[parentFrame.length-1].value;
-            
             if(this.condition==!null){}
             if(this.condition==!null){}
-            
-
             htmlCode=`
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="conditions">Condition</label>
@@ -185,14 +154,10 @@ function Frame(question="",type="Yes/No",condition1=null,condition2=null){
             default:
               htmlCode+=(`
               <input type="text" class="form-control condition2" id="conditions" value="">`);}
-          
-          
           htmlCode+=(`
             </div>
             </div>`);
         }
-        
-   
         
     pattern=document.createElement("ul");
     pattern.className="list-group border-0";
@@ -228,16 +193,8 @@ function Frame(question="",type="Yes/No",condition1=null,condition2=null){
                 </div>
              </li>
 `;
-        
-        
  framePlace.appendChild(pattern);
  document.activeElement.blur();
  return(framePlace.lastElementChild);
     };
-    
-    
-            
-    
-    
 }
-

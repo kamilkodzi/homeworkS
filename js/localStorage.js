@@ -2,17 +2,16 @@ let dbSequence=[];
 var project=[];
 
 function updateHTML(){
-    localStorage.setItem("projectHTML",JSON.stringify(container.innerHTML));
+localStorage.setItem("projectHTML",JSON.stringify(container.innerHTML));
 }
 
 function renderHTML(){
-    container.innerHTML=JSON.parse(localStorage.getItem("projectHTML"));
+container.innerHTML=JSON.parse(localStorage.getItem("projectHTML"));
 }
 
 project.__proto__.updateDB= function(){
-    localStorage.setItem("project",JSON.stringify(this));
+localStorage.setItem("project",JSON.stringify(this));
 };
-
 
 
 function buildSequence(element){
@@ -22,17 +21,11 @@ function buildSequence(element){
         dbSequence.unshift(sequence);
         return dbSequence;
     }else{
-        
         sequence=(Array.from(element.parentElement.children)).indexOf(element)-1;
         dbSequence.unshift(sequence);
         return buildSequence(element.parentElement.parentElement);
-        
-        
     }
-    
 }
-
-
 
 function byPathValueUpdate(obj,sequence,project){
     if(sequence.length==1){
@@ -40,14 +33,12 @@ function byPathValueUpdate(obj,sequence,project){
         project[sequence].type=obj.type;
         project[sequence].condition1=obj.condition1;
         project[sequence].condition2=obj.condition2;
-        
     }else{
         const i=sequence[0];
         sequence.shift();
         return byPathValueUpdate(obj,sequence,project[i].subQuestions);
     }
 }
-
 
 function byPathUpdateOneValue(type,value,sequence,project,firstInTree){
     if(sequence.length==1){
@@ -59,8 +50,7 @@ function byPathUpdateOneValue(type,value,sequence,project,firstInTree){
         sequence.shift();
         return byPathUpdateOneValue(type,value,sequence,project[i].subQuestions,true);//poprawić
     }
-};
-
+}
 
 function byPathUpdate(obj,sequence,project){
     if(sequence.length==1){
@@ -72,7 +62,6 @@ function byPathUpdate(obj,sequence,project){
     }
 }
 
-
 function byPathRemove(sequence,project){
     if(sequence.length==1){
         project.splice(sequence,1);
@@ -82,7 +71,6 @@ function byPathRemove(sequence,project){
         return byPathRemove(sequence,project[i].subQuestions);
     }
 }
-
 
 function localUpdateAdd(obj,element){
     if(element.parentElement.id=="container-list"){
@@ -95,7 +83,6 @@ function localUpdateAdd(obj,element){
        let formPath= buildSequence(element);
        byPathUpdate(obj,formPath,project);
        project.updateDB();
-       
 }}
 
 function localUpdateRemove(element){
@@ -121,9 +108,7 @@ function localStorageChecker(){
     }else{
         renderHTML();
     }
-    
 }
-
 
 function hasChangeUpdate(e){
     dbSequence=[];
@@ -136,20 +121,15 @@ function hasChangeUpdate(e){
     if(e.target.type=="text"){
         e.target.setAttribute("value",e.target.value);
     }else{
-        console.log("zmiana z opcjami");
         for (let i=0;i<e.target.childElementCount;i++){
             e.target.children[i].removeAttribute("selected");
         }
         
         if(e.target.value=="Yes"){e.target.children[0].setAttribute("selected",true)}
         if(e.target.value=="No"){e.target.children[1].setAttribute("selected",true)}
-        if(e.target.value=="Equal"){e.target.children[0].setAttribute("selected",true)}
+        if(e.target.value=="Equals"){e.target.children[0].setAttribute("selected",true)}
         if(e.target.value=="Greather than"){e.target.children[1].setAttribute("selected",true)}
         if(e.target.value=="Smaller than"){e.target.children[2].setAttribute("selected",true)}
-        
- 
     }
     project.updateDB();
 }
-
-

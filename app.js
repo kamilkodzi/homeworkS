@@ -1,14 +1,13 @@
 // Mapping navbars, buttons and container
 document.addEventListener("click",runEvent);
 document.addEventListener("change",hasChange);
- document.addEventListener("DOMContentLoaded",localStorageChecker);
- document.addEventListener("submit",function(e){e.preventDefault();document.activeElement.blur()});
- document.addEventListener("keyup",function(e){if(e.keyCode==13){document.activeElement.blur()}});
+document.addEventListener("DOMContentLoaded",localStorageChecker);
+document.addEventListener("submit",function(e){e.preventDefault();document.activeElement.blur()});
+document.addEventListener("keyup",function(e){if(e.keyCode==13){document.activeElement.blur()}});
 const menuCreate=document.querySelector("#menu-create");
 const menuPreview=document.querySelector("#menu-preview");
 const menuExport=document.querySelector("#menu-export");
 const container=document.querySelector("#container");
-
 
 function runEvent(e){
     // if(e.target.id==="inputType"){conditionByTypeChanger(e)}
@@ -48,5 +47,3 @@ function hasChange(e){
         hasChangeInPreview(e);
     }
 }
-
-
