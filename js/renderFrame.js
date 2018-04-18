@@ -41,7 +41,7 @@ function conditionByTypeChanger(e){
                 <option value="No">No</option>
               </select>`;
           }else{
-              firstConditionField.parentElement.nextElementSibling.innerHTML=`<input type="text" class="form-control condition2" id="conditions" value="">`;
+              firstConditionField.parentElement.nextElementSibling.innerHTML=`<input type="text" class="form-control condition2" id="conditions" value="" autocomplete="off">`;
           }
     while (firstConditionField.options.length) {
         firstConditionField.remove(0);
@@ -163,7 +163,7 @@ function Frame(question="",type="Yes/No",condition1=null,condition2=null){
             break;
             default:
               htmlCode+=(`
-              <input type="text" class="form-control condition2" id="conditions" value="">`);}
+              <input type="text" class="form-control condition2" id="conditions" value="" autocomplete="off">`);}
           htmlCode+=(`
             </div>
             </div>`);
@@ -181,7 +181,7 @@ function Frame(question="",type="Yes/No",condition1=null,condition2=null){
                         <div class="form-group row">
                           <label class="col-sm-2 col-form-label" for="inputQuestion">Question</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control question" id="inputQuestion" value="">
+                            <input type="text" class="form-control question" id="inputQuestion" value="" autocomplete="off">
                           </div>
                         </div>
                         <div class="form-group row">

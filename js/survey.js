@@ -33,7 +33,7 @@ function createPreviewElement(question,placeToAdd){
             ${question.question}
               <form id="previewTextForm">
                 <div class="form-group">
-                  <input type="text" class="form-control mb-2 mr-sm-2" id="previewInput">
+                  <input type="text" class="form-control mb-2 mr-sm-2" id="previewInput" autocomplete="off">
                 </div>
               </form> 
             </li>`;
