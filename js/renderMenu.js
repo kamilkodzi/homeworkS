@@ -47,9 +47,9 @@ function renderPreview(){
     clearContainer();
     deactiveMenu();
     menuPreview.classList.add("active");
-    const htmlElement=document.createElement("ul");
+    const htmlElement=document.createElement("div");
     htmlElement.id="container-list";
-    htmlElement.className="list-group border-0";
+    // htmlElement.className="list-group border-0";
     container.appendChild(htmlElement);
     previewSurvey();
 }

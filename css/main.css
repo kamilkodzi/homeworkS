@@ -42,17 +42,19 @@ div.page{
 .preview li{
     list-style-type: none;
     margin-top:6px;
+    margin-left: 2px;
 }
 
 
 ul.preview{
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
+
 
 input#inlineFormInputName2{
     width: 250px;
 }
 
 div.form-check{
-    margin-left: 10px;
+    margin-left: 8px;
 }
